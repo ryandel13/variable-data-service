@@ -1,0 +1,4 @@
+spring.datasource.url: jdbc:mysql://localhost/vds
+spring.datasource.username: studies
+spring.datasource.password: studies
+spring.datasource.driver-class-name: com.mysql.jdbc.Driver
