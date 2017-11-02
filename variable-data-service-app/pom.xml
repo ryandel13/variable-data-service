@@ -15,7 +15,7 @@
 		<groupId>net.mkengineering.studies.vds</groupId>
 		<artifactId>variable-data-service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
