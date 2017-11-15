@@ -18,6 +18,10 @@ public interface ServiceInterface {
 	@ResponseBody
 	public ResponseEntity<DataResponse> getAllData(@PathVariable("vin") String vin);
 	
+	@RequestMapping(value = CONTEXT + "/{vin}/lastConnection", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<DataResponse> getLastConnection(@PathVariable("vin") String vin);
+	
 	@RequestMapping(value = CONTEXT + "/{vin}/{attribute}/", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<DataResponse> getDataForAttribute(@PathVariable("vin") String vin, @PathVariable("attribute") String attribute);

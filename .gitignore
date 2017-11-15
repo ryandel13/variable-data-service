@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.project
+variable-data-service-app/.classpath
+/variable-data-service-api/target
+*
+*.classpath
+*.project
+/variable-data-service-app/.project
+/variable-data-service-app/.settings
+/variable-data-service-app/target
+/variable-data-service-app/.classpath
+/.project
+/.settings

@@ -39,4 +39,10 @@ public class VdsServiceImpl implements ServiceInterface {
 		this.repo.putData(vin, attribute, value.getValue());
 	}
 
+	public ResponseEntity<DataResponse> getLastConnection(@PathVariable String vin) {
+		DataResponse dR = new DataResponse();
+		dR.setTimestamp(this.repo.lastConnection(vin));
+		return new ResponseEntity<DataResponse>(dR, HttpStatus.OK);
+	}
+
 }

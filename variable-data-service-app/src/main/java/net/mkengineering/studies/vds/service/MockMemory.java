@@ -13,7 +13,7 @@ import net.mkengineering.studies.vds.DataResponse;
 public class MockMemory implements AttributesRepository{
 
 	Map<String, Map<String, DataEntity>> repository = new HashMap<String, Map<String, DataEntity>>();
-	
+	Map<String, Long> lastConnection = new HashMap<String, Long>();
 	
 	@Override
 	public DataResponse getAllData(String vin) {
@@ -54,6 +54,8 @@ public class MockMemory implements AttributesRepository{
 
 	@Override
 	public void putData(String vin, String attributeName, String value) {
+		lastConnection.put(vin, System.currentTimeMillis());
+		
 		if(!repository.containsKey(vin)) {
 			repository.put(vin, new HashMap<String, DataEntity>());
 		}
@@ -81,6 +83,15 @@ public class MockMemory implements AttributesRepository{
 		if(attributeName.equalsIgnoreCase("temperature_inside")) return true;
 		if(attributeName.equalsIgnoreCase("temperature_engine")) return true;
 		return false;
+	}
+
+	@Override
+	public Long lastConnection(String vin) {
+		Long out = 0l;
+		if(lastConnection.containsKey(vin)) {
+			out = lastConnection.get(vin);
+		}
+		return out;
 	}
 
 }

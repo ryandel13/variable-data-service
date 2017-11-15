@@ -11,5 +11,7 @@ public interface AttributesRepository {
 	public DataResponse getHistoryForAttribute(String vin, String attributeName);
 
 	public void putData(String vin, String attributeName, String value);
+	
+	public Long lastConnection(String vin);
 
 }
