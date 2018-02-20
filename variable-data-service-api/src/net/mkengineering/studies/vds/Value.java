@@ -6,4 +6,5 @@ import lombok.Data;
 public class Value {
 	private String value;
 	private String type;
+	private Long timestamp;
 }

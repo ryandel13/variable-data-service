@@ -5,11 +5,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import net.mkengineering.studies.vds.DataResponse;
 
 @Component
+@ConditionalOnProperty(name="execution.location", havingValue="cloud")
 public class MockMemory implements AttributesRepository{
 
 	Map<String, Map<String, DataEntity>> repository = new HashMap<String, Map<String, DataEntity>>();
@@ -53,7 +55,7 @@ public class MockMemory implements AttributesRepository{
 	}
 
 	@Override
-	public void putData(String vin, String attributeName, String value) {
+	public void putData(String vin, String attributeName, String value, Long timestamp) {
 		lastConnection.put(vin, System.currentTimeMillis());
 		
 		if(!repository.containsKey(vin)) {
@@ -69,7 +71,7 @@ public class MockMemory implements AttributesRepository{
 		}
 		dataE.setName(attributeName);
 		dataE.setValue(value);
-		dataE.setTimestamp(System.currentTimeMillis());
+		dataE.setTimestamp(timestamp);
 		dataE.setType(String.class.getName());
 		
 		if(repository.get(vin).get(attributeName) instanceof HistoricalDataEntity) {

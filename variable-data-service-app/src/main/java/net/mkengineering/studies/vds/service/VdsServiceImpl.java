@@ -36,7 +36,10 @@ public class VdsServiceImpl implements ServiceInterface {
 
 	@Override
 	public void putData(@PathVariable("vin") String vin, @PathVariable("attribute") String attribute, @RequestBody Value value) {
-		this.repo.putData(vin, attribute, value.getValue());
+		if(value.getTimestamp() == null) {
+			value.setTimestamp(System.currentTimeMillis());
+		}
+		this.repo.putData(vin, attribute, value.getValue(), value.getTimestamp());
 	}
 
 	public ResponseEntity<DataResponse> getLastConnection(@PathVariable String vin) {

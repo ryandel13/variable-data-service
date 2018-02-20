@@ -10,7 +10,7 @@ public interface AttributesRepository {
 
 	public DataResponse getHistoryForAttribute(String vin, String attributeName);
 
-	public void putData(String vin, String attributeName, String value);
+	public void putData(String vin, String attributeName, String value, Long timestamp);
 	
 	public Long lastConnection(String vin);
 
