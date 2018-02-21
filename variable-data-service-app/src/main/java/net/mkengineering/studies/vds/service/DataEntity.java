@@ -16,6 +16,10 @@ public class DataEntity {
 		
 		private String type;
 		
+		private Boolean delivered;
+		
+		private String vin;
+		
 		public ResponseEntity toResponseEntity() {
 			ResponseEntity dataR = new ResponseEntity();
 			dataR.setName(name);
