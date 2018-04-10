@@ -16,7 +16,7 @@ public class DataEntity {
 		
 		private String type;
 		
-		private Boolean delivered;
+		private Boolean delivered = false;
 		
 		private String vin;
 		
