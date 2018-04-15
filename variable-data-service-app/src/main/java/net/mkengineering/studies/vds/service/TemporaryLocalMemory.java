@@ -124,7 +124,6 @@ public class TemporaryLocalMemory implements AttributesRepository {
 	}
 
 	private class DeliveryThread implements Runnable {
-
 		@Override
 		public void run() {
 			while (true) {
@@ -140,16 +139,13 @@ public class TemporaryLocalMemory implements AttributesRepository {
 						forwardedOrOutdated.add(entry.getKey());
 					}
 				}
-
 				for (Integer i : forwardedOrOutdated) {
 					System.out.println("Removing data with code " + i);
 					forwarder.remove(i);
 				}
-
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -158,7 +154,6 @@ public class TemporaryLocalMemory implements AttributesRepository {
 		private Boolean forwardToCloud(DataEntity data) {
 			try {
 				System.out.println("Forwarding data for attribute " + data.getName());
-				
 				Value v = new Value();
 				v.setTimestamp(data.getTimestamp());
 				v.setType(data.getType());
