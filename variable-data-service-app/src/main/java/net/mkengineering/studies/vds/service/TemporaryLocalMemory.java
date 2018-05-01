@@ -131,7 +131,8 @@ public class TemporaryLocalMemory implements AttributesRepository {
 				for (Entry<Integer, DataEntity> entry : forwarder.entrySet()) {
 					if (forwardToCloud(entry.getValue())) {
 						entry.getValue().setDelivered(true);
-					} else if ((entry.getValue().getTimestamp() + 60 * 1000) < System.currentTimeMillis()) {
+					} else if ((entry.getValue().getTimestamp() + 60 * 1000) < 
+							System.currentTimeMillis()) {
 						entry.getValue().setDelivered(true);
 					}
 
