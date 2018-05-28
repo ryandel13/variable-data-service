@@ -12,6 +12,12 @@
 		<version>1.5.7.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
+	<scm>
+	    <connection>scm:git:https://github.com/ryandel13/variable-data-service</connection>
+	    <developerConnection>scm:git:https://github.com/ryandel13/variable-data-service</developerConnection>
+	    <url>https://github.com/ryandel13/variable-data-service</url>
+  </scm>
   
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +75,20 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<distributionManagement>
+	    <repository>
+		    <uniqueVersion>false</uniqueVersion>
+		<id>nexus2</id>
+		<url>http://jupiter:8081/nexus/content/repositories/releases/</url>
+	    </repository>
+		
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>snapshot</id>
+			<url>http://jupiter:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
 	<modules>
 		<module>variable-data-service-api</module>
 		<module>variable-data-service-app</module>
