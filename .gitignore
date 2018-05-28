@@ -48,7 +48,6 @@ Temporary Items
 *.project
 variable-data-service-app/.classpath
 /variable-data-service-api/target
-*
 *.classpath
 *.project
 /variable-data-service-app/.project
